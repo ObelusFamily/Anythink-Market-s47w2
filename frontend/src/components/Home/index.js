@@ -15,6 +15,7 @@ const Promise = global.Promise;
 
 const mapStateToProps = (state) => ({
   ...state.home,
+  search: state.itemList.search || "",
   appName: state.common.appName,
   token: state.common.token,
 });
@@ -48,7 +49,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
-        <Banner onSearch={this.props.onSearch} />
+        <Banner search={this.props.search} onSearch={this.props.onSearch} />
 
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
