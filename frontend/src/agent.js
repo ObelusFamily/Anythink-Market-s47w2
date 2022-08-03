@@ -58,7 +58,7 @@ const Items = {
     requests.get(`/items?tag=${encode(tag)}&${limit(1000, page)}`),
   byTitle: (title, page) =>
     requests.get(
-      `/items?${title ? "title=" + encode(title) + "&" : ""}${limit(
+      `/items?${title.length >= 3 ? "title=" + encode(title) + "&" : ""}${limit(
         1000,
         page
       )}`

@@ -2,18 +2,15 @@ import React from "react";
 import agent from "../../agent";
 import logo from "../../imgs/logo.png";
 
-const Banner = (props) => {
+const Banner = ({ onSearch, search }) => {
+  console.log("search", search);
   const onInput = (event) => {
-    let search = event.currentTarget.value;
+    const newSearch = event.currentTarget.value;
 
-    if (search.length < 3) {
-      search = undefined;
-    }
-
-    props.onSearch(
-      search,
-      (page) => agent.Items.byTitle(search, page),
-      agent.Items.byTitle(search)
+    onSearch(
+      newSearch,
+      (page) => agent.Items.byTitle(newSearch, page),
+      agent.Items.byTitle(newSearch)
     );
   };
 
@@ -26,6 +23,7 @@ const Banner = (props) => {
           <input
             id="search-box"
             placeholder="What is it that you truly desire?"
+            value={search}
             onInput={onInput}
           />
           <span> the cool stuff.</span>
