@@ -20,14 +20,18 @@ const Banner = ({ onSearch, search }) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          A place to 
-          <span id="get-part" onClick={setShowSearch.bind(null, true)}>get</span>
-          {isShowSearch && <input
-            id="search-box"
-            placeholder="What is it that you truly desire?"
-            value={search}
-            onInput={onInput}
-          />}
+          A place to
+          <span id="get-part" onClick={setShowSearch.bind(null, true)}>
+            get
+          </span>
+          {isShowSearch && (
+            <input
+              id="search-box"
+              placeholder="What is it that you truly desire?"
+              value={search}
+              onInput={onInput}
+            />
+          )}
           <span> the cool stuff.</span>
         </div>
       </div>
