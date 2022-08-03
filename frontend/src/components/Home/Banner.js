@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import agent from "../../agent";
 import logo from "../../imgs/logo.png";
 
 const Banner = ({ onSearch, search }) => {
-  console.log("search", search);
+  const [isShowSearch, setShowSearch] = useState(false);
+
   const onInput = (event) => {
     const newSearch = event.currentTarget.value;
 
@@ -19,13 +20,14 @@ const Banner = ({ onSearch, search }) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">A place to get</span>
-          <input
+          A place to 
+          <span id="get-part" onClick={setShowSearch.bind(null, true)}>get</span>
+          {isShowSearch && <input
             id="search-box"
             placeholder="What is it that you truly desire?"
             value={search}
             onInput={onInput}
-          />
+          />}
           <span> the cool stuff.</span>
         </div>
       </div>
